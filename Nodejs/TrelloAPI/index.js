@@ -1,3 +1,5 @@
+'use strict';   // codeの厳格化
+
 let https = require('https');
 let URL = '';
 
