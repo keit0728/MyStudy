@@ -5,6 +5,8 @@ const URL = 'https://zipcloud.ibsnet.co.jp/api/search?zipcode=1450076';
 const req = https.request(URL, (res) => {
     //WebAPIからjson取得してコンソールに表示
     res.on('data', (chunk) => {
+        let address = JSON.parse(chunk);
+        address = address.results[0].address1;
         console.log(`BODY: ${chunk}`);
     });
 
@@ -14,3 +16,5 @@ const req = https.request(URL, (res) => {
     });
 
 });
+
+req.end();
