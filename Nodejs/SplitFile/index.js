@@ -3,11 +3,20 @@
 // モジュール読み込み
 const fs = require('graceful-fs');      // ERROR:Too many open filesを回避できるfs / 参考(http://dotnsf.blog.jp/archives/1064268194.html)
 const readline = require('readline');
+const mfp = require('./file-operation/file-operation.js');
+
+// 保存先準備
+// const filePath = 
+
 
 // const originFilePath = './_tmp/じょうしょうたん6.txt';
 const originFilePath = './_tmp/test.txt';
 // const createFilePath = './_tmp/Bunkatsu/dest.txt';
 const createFilePath = './_tmp/Bunkatsu/dest';
+
+
+
+
 const extension = '.txt';
 
 const lineLimit = 10;
@@ -39,3 +48,9 @@ rl.on('close', () => {
     dataBuf = '';
     // console.log('end');
 });
+
+
+
+function getFileName() {
+
+}
