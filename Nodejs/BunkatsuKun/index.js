@@ -22,7 +22,6 @@ const lineLimit = properties.get('settings.lineLimit');
 
 // ファイルリスト取得
 let fileList = fileOperation.getFilePath(__dirname);
-// let fileList = fileOperation.getFilePath(`${__dirname}\\_test`);
 fileList = fileList.filter(fileName => fileName.match(/.+\.(csv|txt)/gi));
 
 
