@@ -28,16 +28,10 @@ module.exports = {
      * @param  {Number} lineLimit 分割行数
      */
     splitFile: (filePath, lineLimit) => {
-
-// const extension = '.txt';
-
-// const lineLimit = 10;
-        
-
         // 分割したファイルを格納するフォルダを作成
-        const directorySuffix = '-bunkatsu';
+        const directoryPrefix = 'Bunkatsu-';
         const fileName = path.basename(filePath);
-        const directoryName = `${fileName}${directorySuffix}`;
+        const directoryName = `${directoryPrefix}${fileName}`;
         if (fs.existsSync(directoryName)) {
             fs.rmdirSync(directoryName, { recursive: true });
         }
@@ -45,7 +39,6 @@ module.exports = {
 
         // 1行ずつ読み込み＆lineLimitだけ読み込んだら書き込み
         const rs = fs.createReadStream(filePath, 'utf8');
-        // const rs = fs.createReadStream('./_tmp/test.txt', 'utf8');
         const rl = readline.createInterface(rs, {});
         const extension = path.extname(fileName);
         const onlyFileName = path.basename(filePath, extension);
@@ -72,6 +65,20 @@ module.exports = {
             dataBuf = '';
             // console.log('end');
         });
+    },
 
+    /**
+     * @description ファイルリストに含まれているフォルダを除外
+     * @param  {String[]} fileList ファイルパス
+     */
+    excludeDirectory: (fileList) => {
+        let tmpArray = [];
+        for (let i = 0; i < fileList.length; i=(i+1)|0) {
+            let stats = fs.statSync(fileList[i]);
+            if (!stats.isDirectory()) {
+                tmpArray.push(fileList[i]);
+            }
+        }
+        return tmpArray;
     }
 }
