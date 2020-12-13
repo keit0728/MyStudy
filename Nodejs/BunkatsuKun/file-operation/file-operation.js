@@ -10,10 +10,10 @@ const fs = require('fs');
 module.exports = {
     /**
      * @description ファイルパスを取得
-     * @param  {} callback function name
+     * @param  {String} directoryPath フォルダパス
      */
-    getFilePath: (dirpath) => {
-        const files= fs.readdirSync(dirpath);
+    getFilePath: (directoryPath) => {
+        const files= fs.readdirSync(directoryPath);
         return files;
     }
 }
