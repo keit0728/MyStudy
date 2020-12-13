@@ -1,3 +1,12 @@
+/**
+ * Project Name : BunkatsuKun
+ * 
+ * @author      Keit-oDama
+ * @date        Dec 14, 2020
+ * @description エントリーポイント
+ * 
+ */
+
 'use strict';   // 処理を厳格にする
 
 // モジュール読み込み
@@ -6,7 +15,6 @@ const readline = require('readline');
 const fileOperation = require('./file-operation/file-operation.js');
 const message = require('./message/message.js');
 const propertiesReader = require('properties-reader');
-// const splitFile = require('./split-file/split-file.js');
 
 
 // 設定ファイル読み込み
@@ -29,74 +37,5 @@ if (0 === fileList.length) {
 // ファイル分割
 for (let i = 0; i < fileList.length; i=(i+1)|0) {
     console.log(`${__dirname}\\${fileList[i]}`);
-
     fileOperation.splitFile(`${__dirname}\\${fileList[i]}`, lineLimit);
-
-
 }
-
-
-
-// console.log(filePath);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // const originFilePath = './_tmp/じょうしょうたん6.txt';
-// const originFilePath = './_tmp/test.txt';
-// // const createFilePath = './_tmp/Bunkatsu/dest.txt';
-// const createFilePath = './_tmp/Bunkatsu/dest';
-
-
-
-
-// const extension = '.txt';
-
-// const lineLimit = 10;
-// let n = 0;
-// let tmpN = 0;
-// let dataBuf = '';
-
-// const rs = fs.createReadStream(originFilePath, 'utf8');
-// const rl = readline.createInterface(rs, {});
-
-// // 1行ずつ読み込み＆lineLimitだけ読み込んだら書き込み
-// rl.on('line', chunk => {
-//     dataBuf = `${dataBuf}${chunk}\n`;
-//     n++;
-//     if (n == lineLimit) {
-//         tmpN = tmpN + n;
-//         let dest = fs.createWriteStream(`${createFilePath}-${tmpN/lineLimit}${extension}`, 'utf8');
-//         dest.write(dataBuf);
-//         n = 0;
-//         dataBuf = '';
-//     }
-// });
-
-// // 最終行に到達したら最後に溜まっているdataを吐き出して終了
-// rl.on('close', () => {
-//     let dest = fs.createWriteStream(`${createFilePath}-${(tmpN/lineLimit)+1}${extension}`, 'utf8');
-//     dest.write(dataBuf);
-//     n = 0;
-//     dataBuf = '';
-//     // console.log('end');
-// });
-
-
-
-// function getFileName() {
-
-// }

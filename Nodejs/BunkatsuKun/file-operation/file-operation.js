@@ -6,6 +6,7 @@
  * @description ファイル操作ライブラリ
  * 
  */
+
 'use strict';   // 処理を厳格にする
 const fs = require('graceful-fs');      // ERROR:Too many open filesを回避できるfs / 参考(http://dotnsf.blog.jp/archives/1064268194.html)
 const readline = require('readline');
