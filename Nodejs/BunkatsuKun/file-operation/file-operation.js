@@ -1,9 +1,8 @@
 /**
  * Project Name : BunkatsuKun
- * @author  Keit-oDama
- * @date    Dec 12, 2020
- * @description
- * ファイル操作ライブラリ
+ * @author      Keit-oDama
+ * @date        Dec 12, 2020
+ * @description ファイル操作ライブラリ
  */
 'use strict';   // 処理を厳格にする
 const fs = require('fs');
