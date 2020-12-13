@@ -59,7 +59,7 @@ module.exports = {
 
         // 最終行に到達したら最後に溜まっているdataを吐き出して終了
         rl.on('close', () => {
-            let ws = fs.createWriteStream(`${directoryName}\\${onlyFileName}-${tmpN/lineLimit}${extension}`, 'utf8');
+            let ws = fs.createWriteStream(`${directoryName}\\${onlyFileName}-${(tmpN/lineLimit)+1}${extension}`, 'utf8');
             ws.write(dataBuf);
             n = 0;
             dataBuf = '';

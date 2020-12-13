@@ -10,8 +10,6 @@
 'use strict';   // 処理を厳格にする
 
 // モジュール読み込み
-const fs = require('graceful-fs');      // ERROR:Too many open filesを回避できるfs / 参考(http://dotnsf.blog.jp/archives/1064268194.html)
-const readline = require('readline');
 const fileOperation = require('./file-operation/file-operation.js');
 const message = require('./message/message.js');
 const propertiesReader = require('properties-reader');
@@ -32,6 +30,10 @@ fileList = fileList.filter(fileName => fileName.match(/.+\.(csv|txt)/gi));
 if (0 === fileList.length) {
     throw new Error(message.NO_SPLITTABLE_FILES_FOUND);
 }
+
+
+// フォルダは除外
+fileList = fileOperation.excludeDirectory(fileList);
 
 
 // ファイル分割
