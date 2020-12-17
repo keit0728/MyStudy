@@ -31,5 +31,5 @@ if (typeof filePath === "undefined") {
 
 
 // ファイル分割
-console.log(file);
-fileOperation.splitFile(file, lineLimit);
+console.log(filePath);
+fileOperation.splitFile(filePath, lineLimit);
