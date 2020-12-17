@@ -13,9 +13,13 @@
 const fileOperation = require('./file-operation/file-operation.js');
 const message = require('./message/message.js');
 const propertiesReader = require('properties-reader');
+const fs = require('fs');
 
 
 // 設定ファイル読み込み
+if (!fs.existsSync(`${__dirname}\\settings.ini`)) {
+    throw new Error(message.NOT_FOUND_SETTINGFILES);
+}
 const properties = propertiesReader(`${__dirname}\\settings.ini`);
 const lineLimit = properties.get('settings.lineLimit');
 
