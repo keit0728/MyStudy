@@ -20,10 +20,8 @@ const properties = propertiesReader(`${__dirname}\\settings.ini`);
 const lineLimit = properties.get('settings.lineLimit');
 
 
-// ファイルリスト取得
-let fileList = fileOperation.getFilePath(__dirname);
-fileList = fileList.filter(fileName => fileName.match(/.+\.(csv|txt)/gi));
-
+// コマンドライン引数から分割したいファイルのパスを取得
+let filePath = process.argv[2];
 
 // ファイルが存在しなければ終了
 if (0 === fileList.length) {
