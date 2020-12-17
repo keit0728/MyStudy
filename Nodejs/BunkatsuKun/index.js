@@ -25,13 +25,9 @@ let filePath = process.argv[2];
 
 
 // ファイルが存在しなければ終了
-if (typeof file === "undefined") {
+if (typeof filePath === "undefined") {
     throw new Error(message.NO_SPLITTABLE_FILES_FOUND);
 }
-
-
-// フォルダは除外
-fileList = fileOperation.excludeDirectory(fileList);
 
 
 // ファイル分割
