@@ -16,7 +16,7 @@ const propertiesReader = require('properties-reader');
 
 
 // 設定ファイル読み込み
-const properties = propertiesReader('./settings.ini');
+const properties = propertiesReader(`${__dirname}\\settings.ini`);
 const lineLimit = properties.get('settings.lineLimit');
 
 
