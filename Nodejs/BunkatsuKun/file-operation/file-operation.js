@@ -11,6 +11,7 @@
 const fs = require('graceful-fs');      // ERROR:Too many open filesを回避できるfs / 参考(http://dotnsf.blog.jp/archives/1064268194.html)
 const readline = require('readline');
 const path = require('path');
+const mainDirectory = path.dirname(process.argv[1]);
 
 module.exports = {
     /**
@@ -32,10 +33,10 @@ module.exports = {
         const directoryPrefix = 'Bunkatsu-';
         const fileName = path.basename(filePath);
         const directoryName = `${directoryPrefix}${fileName}`;
-        if (fs.existsSync(directoryName)) {
-            fs.rmdirSync(directoryName, { recursive: true });
+        if (fs.existsSync(`${mainDirectory}\\${directoryName}`)) {
+            fs.rmdirSync(`${mainDirectory}\\${directoryName}`, { recursive: true });
         }
-        fs.mkdirSync(directoryName);
+        fs.mkdirSync(`${mainDirectory}\\${directoryName}`);
 
         // 1行ずつ読み込み＆lineLimitだけ読み込んだら書き込み
         const rs = fs.createReadStream(filePath, 'utf8');
@@ -50,7 +51,7 @@ module.exports = {
             n++;
             if (n == lineLimit) {
                 tmpN = tmpN + n;
-                let ws = fs.createWriteStream(`${directoryName}\\${onlyFileName}-${tmpN/lineLimit}${extension}`, 'utf8');
+                let ws = fs.createWriteStream(`${mainDirectory}\\${directoryName}\\${onlyFileName}-${tmpN/lineLimit}${extension}`, 'utf8');
                 ws.write(dataBuf);
                 n = 0;
                 dataBuf = '';
@@ -59,7 +60,7 @@ module.exports = {
 
         // 最終行に到達したら最後に溜まっているdataを吐き出して終了
         rl.on('close', () => {
-            let ws = fs.createWriteStream(`${directoryName}\\${onlyFileName}-${(tmpN/lineLimit)+1}${extension}`, 'utf8');
+            let ws = fs.createWriteStream(`${mainDirectory}\\${directoryName}\\${onlyFileName}-${(tmpN/lineLimit)+1}${extension}`, 'utf8');
             ws.write(dataBuf);
             n = 0;
             dataBuf = '';
