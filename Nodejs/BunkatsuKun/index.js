@@ -24,7 +24,7 @@ const lineLimit = properties.get('settings.lineLimit');
 let filePath = process.argv[2];
 
 // ファイルが存在しなければ終了
-if (0 === fileList.length) {
+if (typeof file === "undefined") {
     throw new Error(message.NO_SPLITTABLE_FILES_FOUND);
 }
 
@@ -34,7 +34,5 @@ fileList = fileOperation.excludeDirectory(fileList);
 
 
 // ファイル分割
-for (let i = 0; i < fileList.length; i=(i+1)|0) {
-    console.log(`${__dirname}\\${fileList[i]}`);
-    fileOperation.splitFile(`${__dirname}\\${fileList[i]}`, lineLimit);
-}
+console.log(file);
+fileOperation.splitFile(file, lineLimit);
