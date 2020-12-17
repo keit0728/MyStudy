@@ -23,6 +23,7 @@ const lineLimit = properties.get('settings.lineLimit');
 // コマンドライン引数から分割したいファイルのパスを取得
 let filePath = process.argv[2];
 
+
 // ファイルが存在しなければ終了
 if (typeof file === "undefined") {
     throw new Error(message.NO_SPLITTABLE_FILES_FOUND);
