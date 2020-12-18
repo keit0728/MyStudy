@@ -1,6 +1,7 @@
-/_tmp
-/_test
+_tmp/
+_test/
 BunkatsuKun.exe
+log/
 
 # NodeJS specific #
 .nyc_output/
