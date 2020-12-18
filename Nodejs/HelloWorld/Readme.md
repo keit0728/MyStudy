@@ -16,7 +16,6 @@ Hello Nodejs!!!
 ```
 
 # Author
- 
 @autor:     KeitoDama<br>
 @e-mail:    [keit0728.free@gmail.com](mailto:keit0728.free@gmail.com)
 
