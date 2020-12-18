@@ -55,5 +55,5 @@ logger.info(`${settingFilePath} ${message.SUCCESS_READ_FILE}`);
 logger.info(`${message.START_SPILIT_FILE}${lineLimit}行ごとにファイルを分割します。`);
 console.log(`${filePath} を分割中...`);
 fileOperation.splitFile(filePath, lineLimit);
-console.log(`完了！`);
+console.log('完了！');
 logger.info(message.FINISH_SPILIT_FILE);
