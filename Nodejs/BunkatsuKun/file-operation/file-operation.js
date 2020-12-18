@@ -15,15 +15,6 @@ const mainDirectory = path.dirname(process.argv[1]);
 
 module.exports = {
     /**
-     * @description ファイルパスを取得
-     * @param  {String} directoryPath フォルダパス
-     */
-    getFilePath: (directoryPath) => {
-        const files= fs.readdirSync(directoryPath);
-        return files;
-    },
-
-    /**
      * @description ファイルを分割
      * @param  {String} filePath ファイルパス
      * @param  {Number} lineLimit 分割行数
@@ -67,19 +58,4 @@ module.exports = {
             // console.log('end');
         });
     },
-
-    /**
-     * @description ファイルリストに含まれているフォルダを除外
-     * @param  {String[]} fileList ファイルパス
-     */
-    excludeDirectory: (fileList) => {
-        let tmpArray = [];
-        for (let i = 0; i < fileList.length; i=(i+1)|0) {
-            let stats = fs.statSync(fileList[i]);
-            if (!stats.isDirectory()) {
-                tmpArray.push(fileList[i]);
-            }
-        }
-        return tmpArray;
-    }
 }
