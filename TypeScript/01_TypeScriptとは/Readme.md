@@ -1,0 +1,8 @@
+# TypeScriptとは
+Javascriptに型を追加したもの。型で成約されるのでバグが混入しにくい。大規模開発に向いている。
+
+<img src="./images/TypeScriptとは.png" width=100%>
+
+<img src="./images/この1年でTypeScriptを使った？.png" width=100%>
+
+<img src="./images/GitHubで使われている言語で急上昇.png" width=100%>
