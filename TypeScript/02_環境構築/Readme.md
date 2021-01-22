@@ -43,8 +43,40 @@ webpackの設定ファイルを作成する。新規ファイル作成で`webpac
 ## `package.json`を設定
 `package.json`を設定する。<br>
 "script"をいじる。ここで"build"とか追加すると`npm build`で追加した内容を実行できる。<br>
-`"bulid": "webpack --mode=production"` -> webpackを使って本番用の環境をビルドする
-`"start": "webpack-cli server --mode development"` -> 開発環境のwebサーバーを起動
+`"bulid": "webpack --mode=production"` -> webpackを使って本番用の環境をビルドする<br>
+`"start": "webpack-cli serve --mode development"` -> 開発環境のwebサーバーを起動する
+
+## tsconfigの設定
+tsconfigファイルを作成する。
+
+```console:
+./node_modules/.bin/tsc --init
+```
+
+各種設定項目は下記の通り。<br>
+target -> 'es5'にしておくことで比較的古いブラウザ(IE11等)にも対応できる<br>
+module -> 'commonjs'にしておけばnodejsでmodule関連のコードを扱うようになる<br>
+strict -> strict以降に記載されている<br>
+allowJs -> 今までJSで書いていたファイルを少しずつ更新していくよ！ってときに有効にしとくと便利<br>
+baseUrl -> 後々相対パスだと長くて大変だったりどこのファイルかわからなくなるから設定しておくと便利<br>
+<img src="./images/tsconfigの基本的な設定項目.png" width=80%>
+
+## 開発環境構築
+src、distフォルダ内に書いてあるコードをすべて記述したのち、下記を実行。ブラウザが立ち上がり、Hello World! が表示されていることを確認できるはず。
+
+```console:
+npm run start
+```
+
+また、ファイルを書き換えると自動でサーバーが再起動して表示内容が変更される。これがwebpack-dev-serverのhot reload機能。
+
+## 本番環境構築
+下記をコンソールで実行。
+
+```console:
+npm run build
+```
+
 
 # 参考
 https://youtu.be/qSHlXcSces8
